@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "runId": "golden-run-id",
+    "flowName": "golden-flow",
+    "status": "passed",
+    "startedAt": "2024-01-01T00:00:00.000Z",
+    "finishedAt": "2024-01-01T00:00:01.000Z",
+    "durationMs": 1000,
+    "completedSteps": 1,
+    "evidencePath": "events.ndjson"
+  },
+  "summary": {
+    "findings": 1,
+    "confirmed": 1,
+    "likely": 0,
+    "warnings": 0
+  },
+  "findings": [
+    {
+      "id": "finding-0001",
+      "ruleId": "RT-EXCEPTION",
+      "title": "Uncaught runtime exception",
+      "classification": "confirmed",
+      "category": "runtime",
+      "summary": "An uncaught exception occurred: Fixture: simulated uncaught exception",
+      "observed": "Fixture: simulated uncaught exception",
+      "expected": "no uncaught runtime exception",
+      "actionId": "action-0001",
+      "evidence": [
+        {
+          "seq": 3,
+          "type": "runtime_error",
+          "actionId": "action-0001"
+        }
+      ],
+      "reproduction": {
+        "flowName": "golden-flow"
+      }
+    }
+  ],
+  "limitations": [
+    "MCP-driven sessions do not produce evidence or a report in this milestone.",
+    "NW-HTTP-ERROR and NW-TRANSPORT-FAILURE only upgrade to confirmed via an inline expectation on the same action; a later separate expect step never upgrades them.",
+    "ST-INFINITE-LOADING and FM-SERVER-ERROR-NOT-SHOWN require explicit flow.checks configuration and produce no findings without it.",
+    "Only five checker rules exist; there is no accessibility, responsive, performance, hydration, session-loss, or duplicate-request rule yet."
+  ]
+}

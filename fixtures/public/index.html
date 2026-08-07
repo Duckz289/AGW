@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebCheck Fixture</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="app-root">
+      <h1>WebCheck Fixture</h1>
+
+      <form id="login-form" novalidate>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          data-testid="email-input"
+          placeholder="you@example.com"
+          autocomplete="username"
+        />
+
+        <label for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          data-testid="password-input"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        />
+
+        <label for="force-error">
+          <input type="checkbox" id="force-error" data-testid="force-error-checkbox" />
+          Force server error (500) on submit
+        </label>
+
+        <button type="submit" id="login-button" data-testid="login-button">
+          Login
+        </button>
+
+        <p id="error-message" role="alert" hidden></p>
+      </form>
+
+      <p id="loading-indicator" role="status" aria-label="Loading" hidden>Loading</p>
+
+      <section id="tool-buttons">
+        <button type="button" id="console-log-button" data-testid="console-log-button">
+          Trigger console log
+        </button>
+        <button type="button" id="console-error-button" data-testid="console-error-button">
+          Trigger console error
+        </button>
+        <button type="button" id="throw-error-button" data-testid="throw-error-button">
+          Trigger uncaught exception
+        </button>
+        <button type="button" id="rerender-button" data-testid="rerender-button">
+          Rerender email field
+        </button>
+        <button type="button" id="transport-fail-button" data-testid="transport-fail-button">
+          Trigger transport failure
+        </button>
+        <button type="button" id="log-sensitive-button" data-testid="log-sensitive-button">
+          Log sensitive console message
+        </button>
+        <button type="button" id="sensitive-request-button" data-testid="sensitive-request-button">
+          Trigger sensitive request
+        </button>
+        <button type="button" id="infinite-loading-button" data-testid="infinite-loading-button">
+          Trigger infinite loading
+        </button>
+        <button type="button" id="cancel-request-button" data-testid="cancel-request-button">
+          Trigger cancelled request
+        </button>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

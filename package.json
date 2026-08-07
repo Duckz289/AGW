@@ -1,0 +1,40 @@
+{
+  "name": "agent_dt",
+  "version": "1.0.0",
+  "description": "WebCheck Agent — Phase 0 technical validation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "fixture": "tsx fixtures/server.ts",
+    "spike:browser": "tsx spikes/01-browser.ts",
+    "spike:snapshot": "tsx spikes/02-aria-snapshot.ts",
+    "spike:targeting": "tsx spikes/03-element-targeting.ts",
+    "spike:evidence": "tsx spikes/04-evidence.ts",
+    "mcp": "tsx src/mcp/server.ts",
+    "mcp:test": "tsx src/mcp/test-client.ts",
+    "webcheck": "tsx src/cli/index.ts",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "commander": "^15.0.0",
+    "playwright": "^1.62.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2",
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.9",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}

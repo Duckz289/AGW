@@ -1,0 +1,8 @@
+node_modules/
+dist/
+phase0-artifacts/
+.webcheck/
+test-results/
+*.log
+.env
+.env.*

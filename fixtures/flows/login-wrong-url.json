@@ -1,0 +1,11 @@
+{
+  "name": "fixture-login-wrong-url",
+  "startUrl": "http://127.0.0.1:4300",
+  "steps": [
+    { "type": "fill", "target": { "label": "Email" }, "value": "test@example.com" },
+    { "type": "fill", "target": { "label": "Password" }, "value": "correct-password" },
+    { "type": "click", "target": { "role": "button", "name": "Login" } },
+    { "type": "expect", "expected": { "kind": "url_matches", "pattern": "/dashboard" }, "timeoutMs": 1000 },
+    { "type": "expect", "expected": { "kind": "element_visible", "role": "heading", "name": "Dashboard" } }
+  ]
+}

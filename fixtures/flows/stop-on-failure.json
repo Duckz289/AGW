@@ -1,0 +1,12 @@
+{
+  "name": "fixture-stop-on-failure",
+  "startUrl": "http://127.0.0.1:4300",
+  "steps": [
+    {
+      "type": "expect",
+      "expected": { "kind": "element_visible", "role": "heading", "name": "Nonexistent Heading" },
+      "timeoutMs": 500
+    },
+    { "type": "click", "target": { "testId": "force-error-checkbox" } }
+  ]
+}

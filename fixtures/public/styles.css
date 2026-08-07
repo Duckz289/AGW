@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 420px;
+  margin: 3rem auto;
+  color: #1a1a1a;
+}
+
+label {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  margin-top: 0.25rem;
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-block;
+  margin-top: 0.75rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+#error-message {
+  color: #b00020;
+  font-weight: 600;
+}
+
+#tool-buttons {
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
