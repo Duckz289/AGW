@@ -8,6 +8,36 @@ is meant to eventually collect evidence (console, network, screenshots,
 traces) and produce deterministic findings. See `MVP_PLAN.MD` for the
 full product/architecture plan.
 
+## Engineering overview
+
+Use this project to inspect reproducible failures in local frontend flows. The scripted pipeline is:
+
+`Playwright flow → redacted evidence timeline → deterministic checkers → JSON/Markdown reports → regression test`
+
+- Evidence references bind findings to exact timeline events; report rendering does not rerun checks.
+- Typed actions, stale-snapshot rejection, and a loopback URL policy constrain browser control.
+- Unit and browser integration tests cover reports, redaction, evidence finalization, and generated-test verification.
+
+**Current maturity:** an early local implementation. The MCP server exposes browser control, but does not yet produce the scripted pipeline's evidence or reports. Test generation supports three finding classes. See [known limitations](#known-limitations).
+
+## Quick start
+
+With Node.js 20+ and npm installed:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run fixture
+```
+
+In a second terminal:
+
+```bash
+npm run webcheck -- run --flow fixtures/flows/login-success.json
+```
+
+See [typecheck and tests](#typecheck-and-tests) for verification and [MCP proof](#mcp-proof) for the separate agent-control interface. Detailed implementation notes follow.
+
 ## Status: Phase 4A.1 — Evidence Finalization + Verification Result Hardening (complete)
 
 This repository implements **Phase 0** (technical spikes, MCP proof, and
